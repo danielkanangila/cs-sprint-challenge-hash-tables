@@ -3,8 +3,16 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    flat_arr = [num for sub_arr in arrays for num in sub_arr]
 
-    return result
+    count_dict = {}
+    for num in flat_arr:
+        if num in count_dict:
+            count_dict[num] += 1
+        else:
+            count_dict[num] = 1
+
+    return [item[0] for item in count_dict.items() if item[1] == len(arrays)]
 
 
 if __name__ == "__main__":
